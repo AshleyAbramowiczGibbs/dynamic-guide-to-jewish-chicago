@@ -1,31 +1,45 @@
 <template>
 <div class="home">
-    <h1>Jewish Chicago Guide</h1>
+
+    <div>
+      <button v-on:click="setSortAttribute('name')" class="btn btn-secondary">Sort by name</button>
+      <button v-on:click="setSortAttribute('neighborhood')" class="btn btn-secondary">Sort by Neighborhood</button>
+      <button v-on:click="setSortAttribute('category')" class="btn btn-secondary">Sort by category</button>
+    </div>
     <h2>Did you know? Chicago is the 5th largest Jewish community in the United States of America. Read all about the amazing Jewish organizations operating in the city of Chicago. Click on the categories to find your community. Find Your Tribe. 
 
 </h2>
-    <div v-for="organization in organizations">
-  <div>
+<!--     <div v-for="organization in organizations"> -->
+ <div class="row">
+  <div v-for="organization in orderBy(filterBy(organizations, searchFilter, 'name', 'content'), sortAttribute, sortOrder)" class="col-md-4 mb-2" v-bind:key="organization.id">
+          <div class="card">
+                        <img class="card-img-top" v-bind:src="organization.image_url" alt="Card image cap">
+                                    <div class="card-body">
     <h2>{{ organization.name }}</h2>
+    <h3>{{ organization.categories.categoryName }}</h3>
+    <h3>{{ organization.tags }}</h3>
+    <div>
+      <button v-on:click="isHidden = true">Hide the text below</button>
+  <button v-on:click="isHidden = !isHidden">Toggle hide and show</button>
+  
+  <h1 v-if="!isHidden">Hide me on click event!</h1>
     <h3>{{ organization.content }}</h3>
     <h3>{{ organization.website }}</h3>
     <h3>{{ organization.imageUrl }}</h3>
     <h3>{{ organization.facebook }}</h3>
     <h3>{{ organization.email }}</h3>
     <h3>{{ organization.location }}</h3>
-    <h3>{{ organization.categories.categoryName }}</h3>
-    <h3>{{ organization.tags }}</h3>
     </div>
+
+    </div>
+  </div>
+</div>
+</div>
     </div>
   </div>
 </template>
 
 <style>
-div.home {
-  font-size: 1vw;
-  max-width: 300px;
-  margin: 20px;
-}
 </style>
 
 <script>

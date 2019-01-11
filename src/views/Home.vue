@@ -21,10 +21,18 @@
 </template>
 
 <style>
+div.home {
+  font-size: 1vw;
+  max-width: 300px;
+  margin: 20px;
+}
 </style>
 
 <script>
+import Vue2Filters from "vue2-filters";
+
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function() {
     return {
       organizations: [

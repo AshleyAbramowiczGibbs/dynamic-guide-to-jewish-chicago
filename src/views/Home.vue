@@ -10,8 +10,11 @@
 
 </h2>
 <!--     <div v-for="organization in organizations"> -->
+
+        <input type="text" v-model="search" placeholder="search organizations">
  <div class="row">
-  <div v-for="organization in orderBy(filterBy(organizations, searchFilter, 'name', 'content'), sortAttribute, sortOrder)" class="col-md-4 mb-2" v-bind:key="organization.id">
+  <div v-for="organization in filteredOrganizations"> <!-- orderBy(filterBy(organizations, searchFilter, 'name', 'content'), sortAttribute, sortOrder)" class="col-md-4 mb-2" v-bind:key="organization.id"> -->
+
           <div class="card">
                         <img class="card-img-top" v-bind:src="organization.image_url" alt="Card image cap">
                                     <div class="card-body">
@@ -19,16 +22,16 @@
     <h3>{{ organization.categories.categoryName }}</h3>
     <h3>{{ organization.tags }}</h3>
     <div>
-      <button v-on:click="isHidden = true">Hide the text below</button>
-  <button v-on:click="isHidden = !isHidden">Toggle hide and show</button>
+  <button v-on:click='visible = !visible'>Toggle hide and show</button>
   
-  <h1 v-if="!isHidden">Hide me on click event!</h1>
-    <h3>{{ organization.content }}</h3>
-    <h3>{{ organization.website }}</h3>
-    <h3>{{ organization.imageUrl }}</h3>
-    <h3>{{ organization.facebook }}</h3>
-    <h3>{{ organization.email }}</h3>
-    <h3>{{ organization.location }}</h3>
+  <h1 v-if="visible()">
+   {{ organization.content }}
+   {{ organization.website }}
+   {{ organization.imageUrl }}
+   {{ organization.facebook }}
+   {{ organization.email }}
+   {{ organization.location }}
+  </h1>
     </div>
 
     </div>
@@ -109,11 +112,36 @@ export default {
             tag: ""
           }
         }
-      ]
+      ],
+      currentOrganization: "",
+      sortAttribute: "name",
+      sortOrder: 1,
+      search: ""
     };
   },
   created: function() {},
-  methods: {},
-  computed: {}
+  methods: {
+    visible: function() {
+      return false;
+    },
+    setCurrentRecipe: function(inputRecipe) {
+      this.currentRecipe = inputRecipe;
+    },
+    setSortAttribute: function(inputAttribute) {
+      if (this.sortOrder === 1) {
+        this.sortOrder = -1;
+      } else {
+        this.sortOrder = 1;
+      }
+      this.sortAttribute = inputAttribute;
+    }
+  },
+  computed: {
+    filteredOrganizations: function() {
+      return this.organizations.filter(organization => {
+        return organization.content.match(this.search);
+      });
+    }
+  }
 };
 </script>

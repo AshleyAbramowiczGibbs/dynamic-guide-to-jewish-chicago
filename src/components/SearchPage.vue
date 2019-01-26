@@ -43,7 +43,15 @@ h5.intro {
 }
 
 input.form-control {
-  width: 100;
+  width: 100%;
+}
+
+form {
+  padding: 10px;
+}
+
+#checkboxes {
+  margin: 10px;
 }
 </style>
 

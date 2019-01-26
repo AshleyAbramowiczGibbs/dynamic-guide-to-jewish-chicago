@@ -4,10 +4,12 @@
       <img class="img-fluid" :src="item.logo" width="100" alt="Card image cap">
       <div class="card-body">
 <!--         <h5 class="card-title">{{ item.name | capitalize }} </h5> -->
-      </div>
       <div>
         <span v-for="(group, index) in item.stack" :key="index" :class="`badge badge-${tags[group]}`">{{ group }}</span>
-      </div>      
+      </div> 
+      </div>
+<div class="content"> {{ item.content }} </div>
+     
     </div>
   </div>
 </template>
@@ -21,18 +23,18 @@ export default {
       tags: {
         Advocacy: "dark",
         Chabad: "danger",
-        Israel: "pink",
-        "Jewish Intersectionality": "black",
+        Israel: "secondary",
+        "Jewish Intersectionality": "info",
         "Moishe House": "warning",
         Synagogue: "secondary",
         Singles: "info",
         "Social Justice": "light",
-        "Russian Jewish Life": "orange",
-        "Professional Networking": "blue",
-        "Mental Health Awareness": "purple",
+        "Russian Jewish Life": "success",
+        "Professional Networking": "black",
+        "Mental Health Awareness": "warning",
         Politics: "success",
         Volunteering: "danger",
-        "Young Families": "green"
+        "Young Families": "success"
       }
     };
   },

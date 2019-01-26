@@ -2,9 +2,10 @@
   <div class="container-fluid">
 
     <div>
-      <h5>Did you know? Chicago is the 5th largest Jewish community in the United States of America
+      <h5 class="intro">Did you know? Chicago is the 5th largest Jewish community in the United States of America
 
 Read all about the amazing Jewish organizations operating in the city of Chicago. Click on the categories to find your community. Find Your Tribe. </h5>
+
     </div>
     <div class="search-wrapper">
       <!-- the search bar form -->
@@ -35,6 +36,16 @@ Read all about the amazing Jewish organizations operating in the city of Chicago
     </div>
   </div>
 </template>
+
+<style>
+h5.intro {
+  padding: 10px;
+}
+
+input.form-control {
+  width: 100;
+}
+</style>
 
 <script>
 import ItemCard from "./ItemCard";

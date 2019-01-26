@@ -8,7 +8,6 @@
     <div class="card" v-for="organization in filteredList">
       <a v-bind:href="organization.link" target="_blank">
         <img v-bind:src="organization.img"/>
-        {{ organization }}
       </a>
     </div>
   </div>
@@ -23,6 +22,7 @@ input {
   border: 1px solid rgba(0, 0, 0, 0.12);
   transition: 0.15s all ease-in-out;
   background: white;
+  width: 100%;
   &:focus {
     outline: none;
     transform: scale(1.05);

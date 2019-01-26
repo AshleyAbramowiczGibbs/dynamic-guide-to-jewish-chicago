@@ -3,7 +3,7 @@
     <div class="text-center">
       <img class="img-fluid" :src="item.logo" width="100" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">{{ item.name | capitalize }} </h5>
+<!--         <h5 class="card-title">{{ item.name | capitalize }} </h5> -->
       </div>
       <div>
         <span v-for="(group, index) in item.stack" :key="index" :class="`badge badge-${tags[group]}`">{{ group }}</span>
@@ -18,14 +18,20 @@ export default {
     return {
       // list of tags to giving each stack a different color
       tags: {
-        language: "light",
-        framework: "dark",
-        frontend: "success",
-        backend: "danger",
-        mobile: "warning",
-        web: "secondary",
-        hybrid: "info",
-        database: "danger"
+        Advocacy: "dark",
+        Chabad: "danger",
+        Israel: "pink",
+        "Jewish Intersectionality": "black",
+        "Moishe House": "warning",
+        Synagogue: "secondary",
+        Singles: "info",
+        "Social Justice": "light",
+        "Russian Jewish Life": "orange",
+        "Professional Networking": "blue",
+        "Mental Health Awareness": "purple",
+        Politics: "success",
+        Volunteering: "danger",
+        "Young Families": "green"
       }
     };
   },

@@ -1,11 +1,17 @@
 <template>
   <div class="container-fluid">
+
+    <div>
+      <h5>Did you know? Chicago is the 5th largest Jewish community in the United States of America
+
+Read all about the amazing Jewish organizations operating in the city of Chicago. Click on the categories to find your community. Find Your Tribe. </h5>
+    </div>
     <div class="search-wrapper">
       <!-- the search bar form -->
       <form v-on:submit="getfilteredData">
         <div class="form-row">
           <div class="col-10">
-            <input type="text" class="form-control" placeholder="Enter key word  ..." v-model="search" v-on:keyup="getfilteredData">
+            <input type="text" class="form-control" placeholder="Search for a Jewish Organization" v-model="search" v-on:keyup="getfilteredData">
           </div>
           <div class="col-2">
             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
@@ -55,35 +61,59 @@ export default {
       stacks: [
         {
           checked: false,
-          value: "language"
+          value: "Advocacy and Activism"
         },
         {
           checked: false,
-          value: "framework"
+          value: "Chabad"
         },
         {
           checked: false,
-          value: "frontend"
+          value: "Israel"
         },
         {
           checked: false,
-          value: "backend"
+          value: "Jewish Intersectionality"
         },
         {
           checked: false,
-          value: "mobile"
+          value: "Moishe House"
         },
         {
           checked: false,
-          value: "web"
+          value: "Synagogue"
         },
         {
           checked: false,
-          value: "hybrid"
+          value: "Singles"
         },
         {
           checked: false,
-          value: "database"
+          value: "Social Justice"
+        },
+        {
+          checked: false,
+          value: "Russian Jewish Life"
+        },
+        {
+          checked: false,
+          value: "Professional Networking"
+        },
+        {
+          checked: false,
+          value: "Mental Health Awareness"
+        },
+        {
+          checked: false,
+          value: "Politics"
+        },
+        {
+          checked: false,
+          value: "Volunteering"
+        },
+        {
+          checked: false,
+          value: "Young Families"
         }
       ]
     };

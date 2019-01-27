@@ -29,11 +29,37 @@ Read all about the amazing Jewish organizations operating in the city of Chicago
         </div>
       </div>
     </div>
+
+
     <!-- end of checkboxes -->
     <div class="card-columns">
       <!-- iterate data -->
       <item-card v-for="(item, index) in filteredData" :key="index" :item="item"></item-card>
     </div>
+    <div class="addOrg">
+      <h1>Are we missing something? Fill out the form below and we will add it to this page.</h1>
+      <section class="form">
+  <div class="field">
+            <form v-on:submit="sendEmail">
+        <div class="form-row">
+          <div class="col-10">
+            <label class="label">Name</label>
+            <input type="text" class="form-control" placeholder="Organization Name">
+                        <label class="label">Description</label>
+            <input type="text" class="form-control" placeholder="Organization Description">
+                        <label class="label">Website</label>
+            <input type="text" class="form-control" placeholder="Organization Website">
+                        <label class="label">Categories</label>
+            <input type="text" class="form-control" placeholder="Type or Organization or Categories">
+            <button type="submit" class="btn btn-primary"><i class="go">Add Organization</i></button>
+          </div>
+            
+        </div>
+      </form>
+  </div>
+</section>
+    </div>
+          
   </div>
 </template>
 
@@ -52,6 +78,10 @@ form {
 
 #checkboxes {
   margin: 10px;
+}
+
+button {
+  width: 100%;
 }
 </style>
 
